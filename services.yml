@@ -9,3 +9,10 @@
         name: nginx
         enabled: true
         state: started
+
+    - name: Enable sshd
+      ansible.builtin.copy:
+        src: sshd.service
+        dest: /etc/systemd/system/sshd.service
+      notify:
+        - Restart sshd
