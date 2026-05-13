@@ -1,15 +1,17 @@
 ---
+# Ansible playbook to manage services on all hosts
 - name: Manage services
   hosts: all
   become: true
 
+# ensure nginx is enabled and running
   tasks:
     - name: Enable nginx
       ansible.builtin.service:
         name: nginx
         enabled: true
         state: started
-
+# ensure sshd is enabled and running
     - name: Enable sshd
       ansible.builtin.copy:
         src: sshd.service
