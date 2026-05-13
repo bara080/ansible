@@ -1,0 +1,13 @@
+---
+- name: Deploy configuration file
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Copy motd
+      ansible.builtin.copy:
+        src: files/motd
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: '0644'

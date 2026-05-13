@@ -1,0 +1,13 @@
+---
+- name: Use variables
+  hosts: all
+  become: true
+
+  vars:
+    package_name: httpd
+
+  tasks:
+    - name: Install package
+      ansible.builtin.dnf:
+        name: "{{ package_name }}"
+        state: present

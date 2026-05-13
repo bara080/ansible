@@ -1,0 +1,10 @@
+---
+- name: Create developers
+  hosts: dev
+  become: true
+
+  tasks:
+    - name: Create dev user
+      ansible.builtin.user:
+        name: developer
+        state: present

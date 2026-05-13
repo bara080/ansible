@@ -1,0 +1,15 @@
+workstation
+servera
+serverb
+serverc
+
+
+[dev]
+servera 
+serverc
+
+[ops]
+serverb
+
+[devops:children]
+devops

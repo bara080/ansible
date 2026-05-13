@@ -1,0 +1,11 @@
+---
+- name: Conditional example
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Apache on RedHat
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+      when: ansible_os_family == "RedHat"
